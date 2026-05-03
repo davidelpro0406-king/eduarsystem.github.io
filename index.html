@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduard System - Tecnología Reacondicionada</title>
+    <meta name="description" content="Tecnología reacondicionada confiable y accesible. CPUs, monitores, notebooks y más. Servicios técnicos profesionales.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(40,167,69,0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40,167,69,0.6);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            margin-left: 1rem;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 8px 25px rgba(37,211,102,0.6);
+        }
+
+        /* Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid #28a745;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .quality-badge {
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 2rem auto;
+            display: inline-block;
+        }
+
+        /* Location */
+        .location {
+            background: #f8f9fa;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-map {
+            height: 300px;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .location-address {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .phone {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #28a745;
+            margin: 2rem 0;
+            display: block;
+        }
+
+        /* Marketplace */
+        .marketplace {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .marketplace-links {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .marketplace-btn {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .marketplace-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 0 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+                margin-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+                display: block;
+                margin: 0.5rem auto;
+                max-width: 300px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .phone {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipNH8xg7gdWZlcaxreE3WVZHFiZoN7a5F1aDVQPN=s680-w680-h510-rw" alt="Eduard System Logo">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Eduar System</h1>
+            <p class="subtitle">Tecnología reacondicionada, confiable y accesible</p>
+            <p>Ofrecemos productos tecnológicos reacondicionados de alta calidad, completamente probados y listos para usar. Además de servicios técnicos profesionales para optimizar tu equipo.</p>
+            <div>
+                <a href="#contacto" class="btn">Contactar ahora</a>
+                <a href="https://wa.me/541164926914" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos y Servicios -->
+    <section id="productos" class="section">
+        <div class="container">
+            <h2 class="section-title">Productos y Servicios Reacondicionados</h2>
+            <p class="section-subtitle">Todos nuestros productos son reacondicionados, probados y listos para su uso</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>CPUs</h3>
+                    <p>Procesadores potentes y confiables para todo tipo de tareas</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Monitores</h3>
+                    <p>Pantallas de calidad verificada y excelente estado visual</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Notebooks</h3>
+                    <p>Portátiles reacondicionados listos para trabajar</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Teclados</h3>
+                    <p>Teclados mecánicos y de membrana en perfecto estado</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>Mouses</h3>
+                    <p>Mouse ópticos y ergonómicos completamente funcionales</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>Memorias RAM</h3>
+                    <p>RAM testeada y garantizada para máximo rendimiento</p>
+                </div>
+            </div>
+
+            <!-- Servicios -->
+            <div style="margin-top: 4rem; padding-top: 4rem; border-top: 2px solid #eee;">
+                <h3 style="text-align: center; font-size: 2rem; color: #1e3c72; margin-bottom: 2rem;">Nuestros Servicios</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h3>Instalación de Windows</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Actualización de sistemas</h3>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Optimización de equipos</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <span class="quality-badge">✅ Todos nuestros productos son reacondicionados, probados y listos para su uso</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="section location">
+        <div class="container">
+            <h2 class="section-title">Nuestra Ubicación</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3> 📍Aqui nos encontramos:</h3>
+                    <div class="location-address">Cuzco 382, Liniers, CABA.</div>
+               
+                    <a href="#contacto" class="btn" style="margin-top: 2rem;">Ver productos disponibles</a>
+                </div>
+                <div class="location-map">
+                    <!-- Mapa placeholder - puedes reemplazar con Google Maps -->
+                    <iframe src="https://www.google.com/maps?q=Cuzco%20382&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-info">
+                <div class="phone">📱 11 6492-6914</div>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #666;">Consultas sin compromiso</p>
+                <a href="https://wa.me/541164926914" class="btn btn-whatsapp" style="font-size: 1.5rem; padding: 20px 50px;">
+                    <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dónde comprar -->
+    <section id="comprar" class="section marketplace">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">🛒Dónde Comprar</h2>
+            <div class="marketplace-links">
+                <a href="https://www.facebook.com/marketplace/profile/100003354751667/?ref=permalink&mibextid=dXMIcH" 
+                   class="marketplace-btn" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                    Facebook Marketplace
+                </a>
+                <a href="https://wa.me/541164926914" class="marketplace-btn btn-whatsapp" target="_blank" style="background: rgba(40,167,69,0.8); border-color: rgba(40,167,69,0.5);">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp Directo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Eduar System. Tecnología reacondicionada de calidad. Cuzco 382 | 11 6492-6914</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
